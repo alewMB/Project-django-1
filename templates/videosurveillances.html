@@ -1,0 +1,59 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}  
+{% include 'sliders/serveur.html' %}
+<!--content-->
+<section class="container" >
+
+    <!--produit-->
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+          <section class="mx-2 p-5">
+              <div class="container">
+                  <div class="row text-center">
+                    <!--produit content-->
+                    <h1>Serveurs Surveillances</h1>
+                    {% for cam in ProduitServeur %}
+                      <div class="col-md py-2">
+                          <div class="card" style="width: 15rem;" >
+                            {% if cam.img  %}
+                              <img src="{{ cam.img.url }}"  alt="" class="card-img-top">
+                            {% else %}
+                              <img src="{% static 'assets/img/1.png' %}" alt="" class="card-img-top">
+                              {% endif %}
+                              <div class="card-body">
+                                  <h5 class="card-title">{{cam.name}}</h5>
+                                  <a href="{% url 'produitServeur' pk=cam.id %}" class="btn btn-primary">Voir</a>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                     <!--end produit content-->
+                     <h1>Cameras IP</h1>
+                    {% for cam in ProduitCamera %}
+                      <div class="col-md py-2">
+                          <div class="card" style="width: 15rem;" >
+                            {% if cam.img  %}
+                              <img src="{{ cam.img.url }}"  alt="" class="card-img-top">
+                            {% else %}
+                              <img src="{% static 'assets/img/1.png' %}" alt="" class="card-img-top">
+                              {% endif %}
+                              <div class="card-body">
+                                  <h5 class="card-title">{{cam.name}}</h5>
+                                  <a href="{{ cam.get_absolute_url }}" class="btn btn-primary">Voir</a>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+              </div>
+    
+          </section>
+      </div>
+    </div>
+    <!--endproduit-->
+    </section>
+    <!--endcontent-->
+    
+{% endblock content %}

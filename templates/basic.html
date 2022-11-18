@@ -1,0 +1,359 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="keywords" content="htmlcss bootstrap, multi level menu, submenu, treeview nav menu examples" />
+<meta name="description" content="Bootstrap 5 navbar multilevel treeview examples for any type of project, Bootstrap 5" />  
+<title>YARESOLUTION</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
+</head>
+<body>
+<!-- ============= navbar ============== -->
+<nav class="navbar navbar-expand-lg  fixed-top ">
+ <div class="container-fluid  bg-light">
+ 	 <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'assets/img/logo/logo.png' %}" width="120" height="50"></a>
+  <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+    <img src="{% static 'assets/img/logo/icons8-menu-carré-64.png' %}" width="50" height="50">  
+	<span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="main_nav">
+	
+
+<ul class="navbar-nav ms-auto flex-nowrap">
+		<li class="nav-item active   m-1 "> <a class="nav-link " href="{% url 'index' %}">Accueil</a> </li>
+<!-- ============= Produit ============== -->
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle  m-1" href="/" data-bs-toggle="dropdown">Produits</a>
+		    <ul class="dropdown-menu">
+<!-- ============= Video Surveillances ============== -->
+			    <li><a class="dropdown-item" href="">Video Surveillances &raquo; </a>
+			  	 <ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Serveur Video Surveillances &raquo; </a>
+				    	<ul class="submenu dropdown-menu">
+                            {% for Serveur in ProduitServeur %}
+                            <li><a class="dropdown-item" href="{{ Serveur.get_absolute_url }}">{{Serveur.name}}</a></li>
+                            {% endfor %}
+					       <li><a class="dropdown-item" href="#">Demo</a></li>
+                  
+						    
+						    
+						</ul>
+				    </li>
+<!-- ============= endVideo Surveillances ============== -->
+<!-- ============= Cameras ============== -->
+					<li><a class="dropdown-item" href="#">Cameras &raquo; </a>
+				    	<ul class="submenu dropdown-menu">
+						    <li><a class="dropdown-item" href="">Camera IP &raquo;</a>
+                  <ul class="submenu dropdown-menu">
+                    {% for Formation in ProduitCamera %}
+                     <li><a class="dropdown-item" href="{{ Formation.get_absolute_url }}">{{Formation.name}}</a></li>
+                     {% endfor %}
+                   </ul>
+                </li>
+                <li><a class="dropdown-item" href="">Camera PTZ &raquo;</a>
+                  <ul class="submenu dropdown-menu">
+                    {% for ptz in ProduitCameraptz %}
+                     <li><a class="dropdown-item" href="{{ ptz.get_absolute_url }}">{{ptz.name}}</a></li>
+                     {% endfor %}
+                   </ul>
+                  </li>
+                <li><a class="dropdown-item" href="">Camera Bullet &raquo;</a>
+                  <ul class="submenu dropdown-menu">
+                    {% for Bullet in ProduitCameraBullet %}
+                     <li><a class="dropdown-item" href="{{ Bullet.get_absolute_url }}">{{Bullet.name}}</a></li>
+                     {% endfor %}
+                   </ul>
+                  </li>
+						    
+   
+						</ul>
+				    </li>
+            <!-- ============= EndCameras ============== -->
+				    <li><a class="dropdown-item" href="#">Solutions d'affichaege</a></li>
+				    <li><a class="dropdown-item" href="#">Formations &raquo;</a>
+              <ul class="submenu dropdown-menu">
+                {% for Formation in FormAtion %}
+                 <li><a class="dropdown-item" href="{{ Formation.get_absolute_url }}">{{Formation.name}}</a></li>
+                 {% endfor %}
+               </ul>
+            </li>
+				 </ul>
+			    </li>
+<!-- ============= EndSurveillances ============== -->
+    
+<!-- ============= Transmissions ============== -->
+			  <li><a class="dropdown-item" href="#"> Transmissions &raquo;</a>
+				<ul class="submenu dropdown-menu">
+<!-- ============= Switch ============== -->
+					<li><a class="dropdown-item" href="#">Switch &raquo;</a>
+            <ul class="submenu dropdown-menu">
+              {% for Switch in Produitswitch %}
+               <li><a class="dropdown-item" href="{{ Switch.get_absolute_url }}">{{Switch.name}}</a></li>
+               {% endfor %}
+             </ul>
+            </li>
+<!-- ============= endSwitch ============== -->
+<!-- ============= Router ============== -->
+            <li><a class="dropdown-item" href="#">Router &raquo;</a>
+              <ul class="submenu dropdown-menu">
+                {% for Router in Produitroute %}
+                 <li><a class="dropdown-item" href="{{ Router.get_absolute_url }}">{{Router.name}}</a></li>
+                 {% endfor %}
+               </ul>
+              </li>
+<!-- ============= endRouter ============== -->
+<!-- ============= Cables ============== -->
+          <li><a class="dropdown-item" href="#">Cables &raquo;</a>
+            <ul class="submenu dropdown-menu">
+              {% for Cable in Produitcable %}
+               <li><a class="dropdown-item" href="{{ Cable.get_absolute_url }}">{{Cable.name}}</a></li>
+               {% endfor %}
+             </ul>
+            </li>
+          <!-- ============= endCables ============== -->
+				
+				</ul>
+			  </li>
+<!-- ============= EndTransmissions ============== -->
+<!-- ============= Telephone ============== -->
+			  <li><a class="dropdown-item" href="#"> Téléphones &raquo;</a>
+				<ul class="submenu dropdown-menu">
+          <!-- ============= Telephone IP============== -->
+          <li><a class="dropdown-item" href="#">Téléphones IP &raquo;</a>
+            <ul class="submenu dropdown-menu">
+               {% for Telephone in Produittelephone %}
+                <li><a class="dropdown-item" href="{{ Telephone.get_absolute_url }}">{{Telephone.name}}</a></li>
+                {% endfor %}
+            </ul>
+          </li>	
+<!-- ============= endTelephone ip============== -->
+<!-- ============= Serveurs des appels ============== -->
+          <li><a class="dropdown-item" href="#">Serveurs des appels &raquo;</a>
+            <ul class="submenu dropdown-menu">
+               {% for serappel in Produitserveurappel %}
+                <li><a class="dropdown-item" href="{{ serappel.get_absolute_url }}">{{serappel.name}}</a></li>
+                {% endfor %}
+            </ul>
+          </li>	
+
+<!-- ============= endServeurs des appels ============== -->
+
+				</ul>
+			  </li>
+<!-- ============= telephone ============== -->
+		    </ul>
+		</li>
+<!-- ============= EndProduit ============== -->
+<!-- ============= services ============== -->
+<li class="nav-item dropdown ">
+  <a class="nav-link dropdown-toggle  m-1" href="/" data-bs-toggle="dropdown">Services</a>
+  <ul class="dropdown-menu">
+    {% for Service in ProduitServic %}
+    <li><a class="dropdown-item" href="{{ Service.get_absolute_url }}">{{Service.name}}</a></li>
+    {% endfor %}
+  </ul>
+     </li>
+<!-- ============= endservices ============== -->
+<!-- ============= Actualites ============== -->
+<li class="nav-item dropdown ">
+  <a class="nav-link dropdown-toggle  m-1" href="/" data-bs-toggle="dropdown">Actualites</a>
+  <ul class="dropdown-menu">
+    {% for Actualite in ProduitActualit %}
+    <li><a class="dropdown-item" href="{{ Actualite.get_absolute_url }}">{{Actualite.name}}</a></li>
+    {% endfor %} 
+  </ul>
+</li>
+<!-- ============= endActualites ============== -->
+<!-- ============= A propos ============== -->
+<li class="nav-item dropdown ">
+  <a class="nav-link dropdown-toggle  m-1" href="/" data-bs-toggle="dropdown">À propos</a>
+  <ul class="dropdown-menu">
+    {% for Propos in ProduitAPropo %}
+    <li><a class="dropdown-item" href="{{ Propos.get_absolute_url }}">{{Propos.name}}</a></li>
+    {% endfor %} 
+  </ul>
+</li>
+<!-- ============= endA propos ============== -->
+
+<!-- ============= Cherche ============== -->
+<li class="nav-item active m-1 my-2">
+  <form class="d-flex" role="search" >
+	<input class="form-control me-2" type="search" placeholder="Cherche" aria-label="Search" name="recherche">
+	<button class="btn btn-secondary" type="submit">Cherche</button>
+</form></li>
+<!-- ============= endCherche ============== -->		
+	</ul>
+  </div> <!-- navbar-collapse.// -->
+ </div> <!-- container-fluid.// -->
+</nav>
+<!-- ============= endnavbar ============== -->
+
+{% block content %}
+   
+{% endblock content %}
+    
+
+
+
+<!--footer-->
+<footer class="card text-center ">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                <h2>Produits</h2>
+            </button>
+            </h2>
+         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+          <div class="accordion-body">
+           <div class="container py-4 py-md-5 px-4 px-md-3">
+                <div class="row">
+<!-- ============= Video Surveillances ============== -->
+                 <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                  <h4>Serveur</h4>
+                   <ul class="list-unstyled">
+                    {% for Serveur in ProduitServeur  %}
+                    <li class="mb-2"><a href="{{ Serveur.get_absolute_url }}">{{Serveur.name}}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div> 
+<!-- ============= Cameras ============== -->
+                  <div class="col-6 col-lg-2 mb-3">
+                    <h4>Cameras IP</h4>
+                    <ul class="list-unstyled">
+                      {% for Camera in ProduitCamera  %}
+                      <li class="mb-2"><a href="{{ Camera.get_absolute_url }}">{{Camera.name}}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+<!-- ============= telephone ============== -->
+                  <div class="col-6 col-lg-2 mb-3">
+                    <h4>Téléphones IP</h4>
+                    <ul class="list-unstyled">
+                      {% for Telephone in Produittelephone  %}
+                      <li class="mb-2"><a href="{{ Telephone.get_absolute_url }}">{{Telephone.name}}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+<!-- ============= Switch ============== -->
+                  <div class="col-6 col-lg-2 mb-3">
+                    <h4>Switch</h4>
+                    <ul class="list-unstyled">
+                      {% for Switch in Produitswitch  %}
+                      <li class="mb-2"><a href="{{ Switch.get_absolute_url }}">{{Switch.name}}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+<!-- ============= router  ============== -->
+                  <div class="col-6 col-lg-2 mb-3">
+                    <h4>Router</h4>
+                    <ul class="list-unstyled">
+                      {% for Router in Produitroute  %}
+                      <li class="mb-2"><a href="{{ Router.get_absolute_url }}">{{Router.name}}</a></li>
+                      {% endfor %}
+                    </ul>
+                    <ul class="list-unstyled">
+                      {% for Cable in Produitcable  %}
+                      <li class="mb-2"><a href="{{ Cable.get_absolute_url }}">{{Cable.name}}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+<!-- ============= ============== -->
+                 
+                </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            <h2>À propos</h2>
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+          <div class="accordion-body">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
+                <div class="row">
+                  <div class="col-lg-3 mb-3">
+                    <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none" href="/" aria-label="Bootstrap">
+                        <img src="{% static 'assets/img/logo/logo.png' %}" width="220" height="70"><span class="fs-5"></span>
+                    </a>
+                  
+                  </div>
+                  <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                    <h5>Conpétance</h5>
+                    <ul class="list-unstyled">
+                      <li class="mb-2"><a href="/">Sécruté informatique</a></li>
+                      <li class="mb-2"><a href="/docs/5.2/">Develope le site Web</a></li>
+                      <li class="mb-2"><a href="/docs/5.2/examples/">Develope les applications mobile</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-lg-2 mb-3">
+                    <h5>Notre position</h5>
+                    <ul class="list-unstyled">
+                      <li class="mb-2"><a href="/docs/5.2/getting-started/">Getting started</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-lg-2 mb-3">
+                    <h5>Projects</h5>
+                    <ul class="list-unstyled">
+                      <li class="mb-2"><a href="https://github.com/twbs/bootstrap">YARÉSOLUION</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-lg-2 mb-3">
+                    <h5>Nos partanaires</h5>
+                    <ul class="list-unstyled">
+                      <li class="mb-2"><a href="https://github.com/twbs/bootstrap/issues">YARÉSOLUION</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+            <h2>Réseaux Soceaux</h2>
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+          <div class="accordion-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"><a href="https://www.facebook.com/Yare-Solution-115006461211420/?ti=as"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"width="48" height="48"viewBox="0 0 48 48"style=" fill:#undefined;"><linearGradient id="Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1" x1="9.993" x2="40.615" y1="9.993" y2="40.615" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2aa4f4"></stop><stop offset="1" stop-color="#007ad9"></stop></linearGradient><path fill="url(#Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1)" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path><path fill="#fff" d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z"></path></svg></a></th>
+                  <th scope="col"><a href="https://twitter.com/yare_solution/status/1531996235946663936?t=G_fSLSQRWKj3dUYbJrsxOA&s=09"><img src="https://img.icons8.com/color-glass/48/undefined/twitter.png"/></a></th>
+                  <th scope="col"><a href=""><img src="https://img.icons8.com/fluency/48/undefined/linkedin.png"/></a></th>
+                  <th scope="col"><a href="https://www.instagram.com/p/Cd54cKUsLdA/?utm_source=ig_web_copy_link"><img src="https://img.icons8.com/fluency/48/undefined/instagram-reel.png"/></a></th>
+                  <th scope="col"><a href=""><img src="https://img.icons8.com/fluency/48/undefined/youtube-play.png"/></a></th>
+                </tr>
+              </thead>
+            </table>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted bg-dark">
+      @ YARESOLUTION
+    </div>
+  </div>
+</footer>
+   
+<!--endfooter-->
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/sr.min.js' %}"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+</html>

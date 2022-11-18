@@ -1,0 +1,74 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}  
+{% include 'sliders/serveur.html' %}
+<!--content-->
+<section class="container" >
+    <section class="about-area section-bg section-padding py-5" >
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12">
+                
+                {% if Produitserveur.img.url and Produitserveur.image.url %}
+                <div class="about-img about-img1  ">
+                    <img src="{{ Produitserveur.img.url  }}" alt="" width="40%">
+                    <img src="{{ Produitserveur.image.url }}" alt="" width="40%">
+                </div>
+
+                {% else %}
+                <div class="about-img about-img1  ">
+                    <img src="{% static 'assets/img/1.png' %}" alt="" width="40%">
+                    <img src="{% static 'assets/img/1.png' %}" alt="" width="40%">
+                </div>
+                {% endif %}
+                    
+    
+                  
+              </div>
+              <div class="offset-xl-1 offset-lg-0 offset-sm-1 col-xxl-5 col-xl-5 col-lg-6 col-md-9 col-sm-11">
+                  <div class="about-caption about-caption1">
+    
+                      <div class="section-tittle m-0">
+                          <h1>{{Produitserveur.name}}</h1>
+                          {{Produitserveur.detail}}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+    <!--produit-->
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+          <section class="mx-2 p-5">
+              <div class="container">
+                  <div class="row text-center">
+                    <!--produit content-->
+                    {% for cam in ProduitServeur %}
+                      <div class="col-md py-2">
+                          <div class="card" style="width: 15rem;" >
+                            {% if cam.img  %}
+                              <img src="{{ cam.img.url }}"  alt="" class="card-img-top">
+                            {% else %}
+                              <img src="{% static 'assets/img/1.png' %}" alt="" class="card-img-top">
+                              {% endif %}
+                              <div class="card-body">
+                                  <h5 class="card-title">{{cam.name}}</h5>
+                                  <a href="{{ cam.get_absolute_url }}" class="btn btn-primary">Voir</a>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                     <!--end produit content-->
+                  </div>
+              </div>
+    
+          </section>
+      </div>
+    </div>
+    <!--endproduit-->
+    </section>
+    <!--endcontent-->
+    
+{% endblock content %}

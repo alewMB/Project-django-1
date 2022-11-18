@@ -1,0 +1,44 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}  
+<!--Circle-->
+<section>
+	<div class="banner">
+		<div class="circle">
+			<span>YARÉ</span>
+			<h1>SOLUTION</h1>
+			<h3>VOTRE EXPERT</h3>
+			<h2>IT</h2>
+			<h2>TÉLÉCOM</h2>
+			<i></i>
+		</div>
+	</div>
+  </section>
+<!--endCircle--> 
+<!--slider-->
+
+    <!--sliders-->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'assets/img/sliders/slider_accueil/br3.jpg' %}" class="img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'assets/img/sliders/slider_accueil/br4.jpg' %}" class="img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'assets/img/sliders/slider_accueil/br5.jpg' %}" class="img-fluid" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!--endslider-->
+{% endblock content %}
